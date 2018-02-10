@@ -140,8 +140,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       ready() {
         super.ready();
 
-        FB.getLoginStatus(function(response) {
-          console.debug(MyApp.getIs(), response);
+        FB.getLoginStatus((response) => {
+          this._afterStatus(response);
         });
       }
 
@@ -189,6 +189,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       _showPage404() {
         this.page = 'view404';
+      }
+
+      _afterStatus(response) {
+        console.debug('MyApp: ', response.status);
+        if (response.status == 'not_authorized') {
+          console.log('try login');
+          FB.login();
+        }
       }
     }
 
