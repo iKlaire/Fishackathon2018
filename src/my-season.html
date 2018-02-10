@@ -10,22 +10,29 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="shared-styles.html">
-
+<link rel="import" href="../bower_components/google-map/google-map.html">
 <dom-module id="my-season">
   <template>
     <style include="shared-styles">
       :host {
         display: block;
-
         padding: 10px;
+      }
+      #google-map-div {
+        height: 350px; 
+        width: 100%
       }
     </style>
 
     <div class="card">
       <div class="circle">3</div>
       <h1>Season</h1>
-      <p>Google Map Here</p>
-      <p>Form</p>
+      <div id="google-map-div">
+        <google-map latitude="3.1390" longitude="101.6869" api-key="AIzaSyCl-I4v_4LQdvXcQJyJ2IHoTjnEGFTRePw" zoom="13" disable-default-ui fit-to-markers>
+          <google-map-marker latitude="3.1390" longitude="101.6869" title="Here" draggable="true"></google-map-marker>
+        </google-map>
+      </div>
+      <p></p>
     </div>
   </template>
 
@@ -33,7 +40,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     class MySeason extends Polymer.Element {
       static get is() { return 'my-season'; }
     }
-
     window.customElements.define(MySeason.is, MySeason);
   </script>
 </dom-module>
