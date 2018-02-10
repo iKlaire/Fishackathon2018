@@ -120,10 +120,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             attr-for-selected="name"
             fallback-selection="view404"
             role="main">
-          <my-news name="news"></my-news>
-          <my-view2 name="view2" title={{title}}></my-view2>
-          <my-view3 name="view3"></my-view3>
-          <my-view404 name="view404"></my-view404>
+          <my-news id="news" name="news" title="Marine Life"></my-news>
+          <my-view2 id="view2" name="view2" title="Dynamic V2"></my-view2>
+          <my-view3 id="view3" name="view3" title="Dynamic V3"></my-view3>
+          <my-view404 id="view404" name="view404" title="404 - Content not Found"></my-view404>
         </iron-pages>
       </app-header-layout>
     </app-drawer-layout>
@@ -141,7 +141,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             observer: '_pageChanged',
           },
           title: {
-            type: String
+            type: String,
           },
           routeData: Object,
           subroute: String,
@@ -176,6 +176,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             null,
             this._showPage404.bind(this),
             true);
+        this.title = this.$[page].title;
       }
 
       _showPage404() {

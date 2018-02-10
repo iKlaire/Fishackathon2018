@@ -23,13 +23,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </style>
 
     <div class="card">
-      <h1>Endangered Marine species in Pacific Ocean</h1>
+      <h1>[[title]] in Pacific Ocean</h1>
       <iron-image src="../images/news1.jpeg" style="width:100%; height:150px;" sizing="contain"></iron-image>
       <p>Ut labores minimum atomorum pro. Laudem tibique ut has.</p>
       <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
     </div>
     <div class="card">
-      <h1>Endangered Marine species in Pacific Ocean</h1>
+      <h1>[[title]] in Pacific Ocean</h1>
       <iron-image src="../images/news2.jpeg" style="width:100%; height:180px;" sizing="contain"></iron-image>
       <p>Ut labores minimum atomorum pro. Laudem tibique ut has.</p>
       <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
@@ -39,6 +39,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <script>
     class News extends Polymer.Element {
       static get is() { return 'my-news'; }
+
+      static get properties() {
+        return {
+          title: {
+            type: String,
+          },
+        };
+      }
     }
 
     window.customElements.define(News.is, News);
