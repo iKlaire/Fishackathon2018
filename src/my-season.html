@@ -42,11 +42,29 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <div>Locations</div>
           <input type="text" name="name" value="3.1390, 101.6869">
           <div>Type of Vessels</div>
-          <input type="text" name="name" value="Trawlers">
+          <select name="vessels">
+            <option value="longliners">Longliners</option>
+            <option value="gillnetters">Gillnetters</option>
+            <option value="crabbers">Crabbers</option>
+            <option value="trawlers">Trawlers</option>
+            <option value="drifters">Drifters</option>
+            <option value="factoryShip">Factory Ship</option>
+          </select>
           <div>Fishing Methods</div>
-          <input type="text" name="name" value="Purse Seining">
+          <select name="fishingMethod">
+              <option value="pelagic">Pelagic Trawling</option>
+              <option value="otter">Otter Trwalling</option>
+              <option value="beam">Beam Trawling</option>
+              <option value="pulse">Pulse Trawling</option>
+              <option value="pair">Pair Trawling</option>
+              <option value="purse">Purse Seining</option>
+              <option value="dredging">Dredging</option>
+              <option value="longlining">Long-lining</option>
+              <option value="gdtnet">Gill Nets, Drift Nets and Tangle Nets</option>
+              <option value="lobsterandcp">Lobster and Crab Pots</option>
+            </select>          
           <div>Date</div>
-          <input type="text" name="name" value="10-02-2018">
+          <input type="text" name="name" value="{{ today }}">
           <div>Would you marry Jeremy?
           <paper-checkbox name="loveJeremy" value="yes" checked></paper-checkbox></div>
           <paper-button raised onclick="submitForm()">Submit</paper-button>
@@ -58,10 +76,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   
   <script>
     function submitForm() {
-      document.getElementById('iron-form').submit();
+      alert('hehe u clicked me');
     }
 
     class MySeason extends Polymer.Element {
+
+    static get properties() {
+      const today = new Date();
+      const monthValue = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate(); 
+      return {
+        today: {
+          type: String,
+          value: monthValue
+        }
+      }
+    }
+
       static get is() {
         return 'my-season'; 
       }
