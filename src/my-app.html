@@ -26,6 +26,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="lazy-import" href="my-news.html">
 <link rel="lazy-import" href="my-view2.html">
 <link rel="lazy-import" href="my-view3.html">
+<link rel="lazy-import" href="my-season.html">
 <link rel="lazy-import" href="my-view404.html">
 
 <dom-module id="my-app">
@@ -100,6 +101,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <a name="news" href="[[rootPath]]news">Latest News & Updates</a>
           <a name="view2" href="[[rootPath]]view2">View Two</a>
           <a name="view3" href="[[rootPath]]view3">View Three</a>
+          <a name="season" href="[[rootPath]]season">Season</a>
         </iron-selector>
       </app-drawer>
 
@@ -124,6 +126,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <my-view2 id="view2" name="view2" title="Dynamic V2"></my-view2>
           <my-view3 id="view3" name="view3" title="Dynamic V3"></my-view3>
           <my-view404 id="view404" name="view404" title="404 - Content not Found"></my-view404>
+          <my-season id="season" name="season"  title="Season"></my-season>
         </iron-pages>
       </app-header-layout>
     </app-drawer-layout>
