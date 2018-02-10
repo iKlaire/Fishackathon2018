@@ -101,6 +101,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <a name="view2" href="[[rootPath]]view2">View Two</a>
           <a name="view3" href="[[rootPath]]view3">View Three</a>
         </iron-selector>
+        <fb:login-button
+            scope="public_profile,email"
+            onlogin="checkLoginState();">
+        </fb:login-button>
       </app-drawer>
 
       <!-- Main content -->
@@ -132,6 +136,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <script>
     class MyApp extends Polymer.Element {
       static get is() { return 'my-app'; }
+
+      ready() {
+        super.ready();
+
+        FB.getLoginStatus(function(response) {
+          console.debug(MyApp.getIs(), response);
+        });
+      }
 
       static get properties() {
         return {
