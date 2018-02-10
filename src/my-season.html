@@ -11,6 +11,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="shared-styles.html">
 <link rel="import" href="../bower_components/google-map/google-map.html">
+<link rel="import" href="../bower_components/iron-form/iron-form.html">
+<link rel="import" href="../bower_components/paper-checkbox/paper-checkbox.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
 <dom-module id="my-season">
   <template>
     <style include="shared-styles">
@@ -19,26 +22,49 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         padding: 10px;
       }
       #google-map-div {
-        height: 350px; 
+        height: 250px; 
+        width: 100%
+      }
+      input {
         width: 100%
       }
     </style>
 
     <div class="card">
-      <div class="circle">3</div>
       <h1>Season</h1>
       <div id="google-map-div">
         <google-map latitude="3.1390" longitude="101.6869" api-key="AIzaSyCl-I4v_4LQdvXcQJyJ2IHoTjnEGFTRePw" zoom="13" disable-default-ui fit-to-markers>
           <google-map-marker latitude="3.1390" longitude="101.6869" title="Here" draggable="true"></google-map-marker>
         </google-map>
       </div>
-      <p></p>
+      <iron-form>
+        <form method="get" action="/form/handler">
+          <div>Locations</div>
+          <input type="text" name="name" value="3.1390, 101.6869">
+          <div>Type of Vessels</div>
+          <input type="text" name="name" value="Trawlers">
+          <div>Fishing Methods</div>
+          <input type="text" name="name" value="Purse Seining">
+          <div>Date</div>
+          <input type="text" name="name" value="10-02-2018">
+          <div>Would you marry Jeremy?
+          <paper-checkbox name="loveJeremy" value="yes" checked></paper-checkbox></div>
+          <paper-button raised onclick="submitForm()">Submit</paper-button>
+        </form>
+      </iron-form>
     </div>
   </template>
 
+  
   <script>
+    function submitForm() {
+      document.getElementById('iron-form').submit();
+    }
+
     class MySeason extends Polymer.Element {
-      static get is() { return 'my-season'; }
+      static get is() {
+        return 'my-season'; 
+      }
     }
     window.customElements.define(MySeason.is, MySeason);
   </script>

@@ -16,7 +16,10 @@
     "polymer": "Polymer/polymer#^2.0.0",
     "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0",
     "iron-image": "^2.1.2",
-    "google-map": "^2.0.3"
+    "google-map": "^2.0.3",
+    "iron-form": "^2.1.4",
+    "paper-checkbox": "^2.0.2",
+    "paper-button": "^2.0.0"
   },
   "resolutions": {
     "polymer": "^2.0.0"
