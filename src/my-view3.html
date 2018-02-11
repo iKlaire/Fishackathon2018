@@ -18,23 +18,28 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <style include="shared-styles">
       :host {
         display: block;
-
-        padding: 10px;
       }
+
+      #video_container {
+        width: 100vw;
+        height: calc(100vh - 65px);
+        background: black;
+      }
+      #camera_stream {
+        width: 100vw;
+        height: calc(100vh - 65px);
+      }
+
     </style>
 
-    <div class="card">
-      <form action="/api/recognize" method="post" enctype="multipart/form-data">
-        <input type="file" accept="image/*;capture=camera" name="image" id="image">
-        <br>
-        <br>
-        <input type="submit">
-      </form>
-      <div id="fb-root"></div>
+    <div id="video_container">
+      <video id="camera_stream" width="100vw" autoplay on-tap="_takeSnapshot"></video>
     </div>
   </template>
 
   <script>
+    /* eslint-disable no-trailing-spaces,no-console,max-len */
+
     class MyView3 extends Polymer.GestureEventListeners(Polymer.Element) {
       static get is() { return 'my-view3'; }
 
@@ -64,6 +69,66 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         this.fileChooser = this.$.chooser;
         this.button = this.$.upload;
         this.results = this.$.results;
+      }
+
+      connectedCallback() {
+        super.connectedCallback();
+
+        navigator.getUserMedia = (navigator.getUserMedia ||
+          navigator.webkitGetUserMedia ||
+          navigator.mozGetUserMedia ||
+          navigator.msGetUserMedia);
+
+        window.URL = window.URL || window.webkitURL || window.mozURL || window.msURL;
+
+        if (navigator.getUserMedia) {
+          // Request the camera.
+          navigator.getUserMedia(
+            // Constraints
+            {
+              video: true,
+            },
+
+            // Success Callback
+            (localMediaStream) => {
+              let video = this.$.camera_stream;
+              video.src = (window.URL && window.URL.createObjectURL(localMediaStream)) || localMediaStream;
+              video.play();
+            },
+
+            // Error Callback
+            function(err) {
+              // Log the error to the console.
+              console.log('The following error occurred when trying to use getUserMedia: ' + err);
+            }
+          );
+
+        } else {
+          alert('Sorry, your browser does not support getUserMedia');
+        }
+      }
+
+      _takeSnapshot() {
+        console.log('video tapped');
+
+        let video = this.$.camera_stream;
+        let img = this.querySelector('img') || document.createElement('img');
+        console.log(img);
+        let context;
+        let width = video.offsetWidth;
+        let height = video.offsetHeight;
+
+        let canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
+
+        context = canvas.getContext('2d');
+        context.drawImage(video, 0, 0, width, height);
+
+        video.pause();
+
+        img.src = canvas.toDataURL('image/png');
+        this.appendChild(img);
       }
     }
 

@@ -101,10 +101,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <a name="view2" href="[[rootPath]]view2">View Two</a>
           <a name="view3" href="[[rootPath]]view3">View Three</a>
         </iron-selector>
-        <fb:login-button
-            scope="public_profile,email"
-            onlogin="checkLoginState();">
-        </fb:login-button>
       </app-drawer>
 
       <!-- Main content -->
@@ -139,7 +135,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       ready() {
         super.ready();
+      }
 
+      connectedCallback() {
+        super.connectedCallback();
         FB.getLoginStatus((response) => {
           this._afterStatus(response);
         });
@@ -192,10 +191,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       _afterStatus(response) {
-        console.debug('MyApp: ', response.status);
-        if (response.status == 'not_authorized') {
-          console.log('try login');
-          FB.login();
+        console.debug('MyApp: ', response);
+        switch (response.status) {
+          case 'not_authorized':
+          case 'unknown':
+            console.log('try login');
+            FB.login();
+            break;
         }
       }
     }
