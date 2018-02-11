@@ -20,7 +20,10 @@
     "iron-form": "^2.1.4",
     "paper-checkbox": "^2.0.2",
     "paper-button": "^2.0.0",
-    "iron-collapse": "PolymerElements/iron-collapse#^2.1.0"
+    "iron-collapse": "PolymerElements/iron-collapse#^2.1.0",
+    "vaadin-valo-theme": "^0.3.2",
+    "vaadin-upload": "^3.0.2",
+    "vaadin-button": "^1.0.5"
   },
   "resolutions": {
     "polymer": "^2.0.0"
