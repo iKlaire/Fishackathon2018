@@ -20,11 +20,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../bower_components/iron-image/iron-image.html">
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
+<link rel="import" href="../bower_components/iron-collapse/iron-collapse.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="my-icons.html">
 
 <link rel="lazy-import" href="my-news.html">
-<link rel="lazy-import" href="my-view2.html">
+<link rel="lazy-import" href="my-register.html">
+<link rel="lazy-import" href="my-register2.html">
 <link rel="lazy-import" href="my-view3.html">
 <link rel="lazy-import" href="my-season.html">
 <link rel="lazy-import" href="my-view404.html">
@@ -32,8 +34,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <dom-module id="my-app">
   <template>
     <style>
+
       :host {
-        --app-primary-color: #4285f4;
+        --app-primary-color: #27ADCD;
         --app-secondary-color: black;
 
         display: block;
@@ -73,12 +76,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         margin-top: 10px
       }
 
-      .registerLink {
-        text-decoration: none;
-        color: white;
-        margin-right: 10px
-
-      }
     </style>
 
     <app-location
@@ -99,10 +96,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <iron-image src="../images/manifest/fishlogo-192x192.png" style="width:100%; height:150px;" sizing="contain"></iron-image>
         <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
           <a name="news" href="[[rootPath]]news">Latest News & Updates</a>
-          <a name="view2" href="[[rootPath]]view2">View Two</a>
+          <a name="register" href="[[rootPath]]register">Register</a>
           <a name="view3" href="[[rootPath]]view3">View Three</a>
           <a name="season" href="[[rootPath]]season">Season</a>
-        </iron-selector>
       </app-drawer>
 
       <!-- Main content -->
@@ -112,7 +108,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <app-toolbar>
             <paper-icon-button icon="my-icons:menu" drawer-toggle></paper-icon-button>
 
-            <div main-title>{{title}}</div>
+            <div main-title>[[title]]</div>
 
           </app-toolbar>
         </app-header>
@@ -122,9 +118,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             attr-for-selected="name"
             fallback-selection="view404"
             role="main">
-          <my-news id="news" name="news" title="Marine Life"></my-news>
-          <my-view2 id="view2" name="view2" title="Dynamic V2"></my-view2>
-          <my-view3 id="view3" name="view3" title="Dynamic V3"></my-view3>
+          <my-news id="news" name="news" title="Latest News & Updates"></my-news>
+          <my-register id="register" name="register" title="Register"></my-register>
+          <my-register2 id="register2" name="register2" title="Register"></my-register2>
+          <my-view3 id="view3" name="view3" title="View Three"></my-view3>
           <my-view404 id="view404" name="view404" title="404 - Content not Found"></my-view404>
           <my-season id="season" name="season"  title="Season"></my-season>
         </iron-pages>

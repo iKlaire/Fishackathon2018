@@ -19,7 +19,8 @@
     "google-map": "^2.0.3",
     "iron-form": "^2.1.4",
     "paper-checkbox": "^2.0.2",
-    "paper-button": "^2.0.0"
+    "paper-button": "^2.0.0",
+    "iron-collapse": "PolymerElements/iron-collapse#^2.1.0"
   },
   "resolutions": {
     "polymer": "^2.0.0"

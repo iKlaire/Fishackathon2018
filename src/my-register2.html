@@ -1,0 +1,63 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/vaadin-upload/vaadin-upload.html">
+<link rel="import" href="../bower_components/vaadin-button/vaadin-button.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="my-register2">
+  <template>
+    <style>
+      .uploadbox {
+        height: 80%;
+        width: 80%;
+        margin: auto;
+        margin-top: 20px;
+        color: white;
+      }
+    </style>
+
+
+    <dom-bind>
+      <template is="dom-bind">
+        <vaadin-upload class="uploadbox" id="fileEventsDemo" files="{{files}}">
+          <div slot="file-list">
+            <h4>Files</h4>
+            <ul>
+              <template is="dom-repeat" items="{{files}}" as="file">
+                <li>
+                  <strong>[[file.name]]</strong>
+                  [[file.status]]
+                </li>
+              </template>
+            </ul>
+          </div>
+        </vaadin-upload>
+      </template>
+    </dom-bind>
+  </template>
+
+  <script>
+    class Register2 extends Polymer.Element {
+      static get is() { return 'my-register2'; }
+
+      static get properties() {
+        return {
+          title: {
+            type: String,
+          },
+        };
+      }
+    }
+
+    window.customElements.define(Register2.is, Register2);
+  </script>
+</dom-module>
