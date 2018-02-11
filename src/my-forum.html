@@ -1,0 +1,97 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-input/paper-textarea.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="my-forum">
+  <template>
+    <custom-style>
+      <style>
+        paper-textarea {
+          --iron-autogrow-textarea: {
+            margin-left:19px;
+            width: 90%;
+            height: 200px;
+            box-sizing: border-box;
+            color: white;
+            background-color: rgba(255, 255, 255, 0.20);
+            border-radius: 5px;
+          }
+        }
+        p {
+          color: #fff;
+          font-size: 12px;
+          margin: 0;
+          margin-bottom: 10px;
+        }
+        h3 {
+          margin: 0px;
+          color: #fff;
+          font-size: 15px;
+          background-color: rgba(0, 0, 0, 0.3);
+        }
+        .card {
+          margin: 7px;
+          margin-top: 10px;
+          color: white;
+          background-color: rgba(0, 0, 0, 0.3);
+        }
+        button{
+          margin-left: 140px;
+          background-color:white;
+          height:30px;
+          width:80px;
+        }
+      </style>
+    </custom-style>
+
+    <div class="card">
+      <h4 style="color: #fff; margin: 0px; margin-top:20px;margin-left:20px">Leave your comments here:</h4>
+      <paper-textarea class='textareaBox' style="margin-left:30px;margin-top:-20px"></paper-textarea>
+      <button>Post</button>
+    </div>
+
+    <div class="card" style="margin-top:50px">
+      <div class="card">
+        <h3>Worked in Marine Syok</h3>
+        <p>My boss is damn asshole. We worked for 3 months non-stop and I am dying!!!<p>
+      </div>
+      <div class="card">
+        <h3>Worked in SeaShore Fish Shn Bhd</h3>
+        <p>Alan is a very good boss. He belanja us meal after our fishing.</p>
+      </div>
+      <div class="card">
+        <h3>Worked in SeaShore Fish Sdn Bhd</h3>
+        <p>Captain Hon Wai is damn handsome and kind boss. He is the best captain I have ever had in my life!!</p>
+      </div>
+      <div class="card" style="margin-top: 40px">
+        <p style="text-align: center">Click here to load more comments...</p>
+      </div>
+    </div>
+  </template>
+
+  <script>
+    class Forum extends Polymer.Element {
+      static get is() { return 'my-forum'; }
+
+      static get properties() {
+        return {
+          title: {
+            type: String,
+          },
+        };
+      }
+    }
+
+    window.customElements.define(Forum.is, Forum);
+  </script>
+</dom-module>

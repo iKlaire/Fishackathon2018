@@ -29,6 +29,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="lazy-import" href="my-register2.html">
 <link rel="lazy-import" href="my-view3.html">
 <link rel="lazy-import" href="my-season.html">
+<link rel="lazy-import" href="my-forum.html">
 <link rel="lazy-import" href="my-season-result.html">
 <link rel="lazy-import" href="my-facerec.html">
 <link rel="lazy-import" href="my-facerec-result.html">
@@ -79,6 +80,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         margin-top: 10px
       }
 
+      .registerLink{
+        font-size: 15px;
+        text-decoration: none;
+        color: white;
+      }
+
     </style>
 
     <app-location
@@ -102,6 +109,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <a name="facerec" href="[[rootPath]]facerec">Face Recognition</a>
           <a name="register" href="[[rootPath]]register">Register</a>
           <a name="season" href="[[rootPath]]season">Season</a>
+          <a name="forum" href="[[rootPath]]forum">FoF Forum</a>
       </app-drawer>
 
       <!-- Main content -->
@@ -112,7 +120,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <paper-icon-button icon="my-icons:menu" drawer-toggle></paper-icon-button>
 
             <div main-title>[[title]]</div>
-
+            <a class="registerLink" name="register" href="[[rootPath]]register">Register</a>
           </app-toolbar>
         </app-header>
 
@@ -127,6 +135,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <my-view3 id="view3" name="view3" title="View Three"></my-view3>
           <my-view404 id="view404" name="view404" title="404 - Content not Found"></my-view404>
           <my-season id="season" name="season"  title="Season"></my-season>
+          <my-forum id="forum" name="forum"  title="Forum"></my-forum>
           <my-season-result id="season-result" name="season-result"  title="Season Details"></my-season-result>
           <my-facerec id="facerec" name="facerec"  title="Face Recognition"></my-facerec>
           <my-facerec-result id="facerec-result" name="facerec-result"  title="Face Recognition"></my-facerec-result>
