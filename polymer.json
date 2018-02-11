@@ -2,11 +2,15 @@
   "entrypoint": "index.html",
   "shell": "src/my-app.html",
   "fragments": [
+    "src/my-facerec.html",
+    "src/my-facerec-result.html",
+    "src/my-forum.html",
+    "src/my-icons.html",
     "src/my-news.html",
     "src/my-register.html",
     "src/my-register2.html",
-    "src/my-view3.html",
     "src/my-season.html",
+    "src/my-season-result.html",
     "src/my-view404.html"
   ],
   "sources": [
