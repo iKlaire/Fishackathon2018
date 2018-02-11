@@ -11,6 +11,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/vaadin-upload/vaadin-upload.html">
 <link rel="import" href="../bower_components/vaadin-button/vaadin-button.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="shared-styles.html">
 
 <dom-module id="my-register2">
@@ -23,14 +24,26 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         margin-top: 20px;
         color: white;
       }
+      h3 {
+        color: white;
+        margin: 20px;
+        font-size: 18px;
+      }
+      paper-button {
+        margin-top: 10px;
+        color: #000;
+        background-color: #ddd;
+        width: 50%;
+      }
     </style>
-
-
+    </iron-form>
+  </form>
+    <h3>Please upload a picture of your IC / Passport</h3>
     <dom-bind>
       <template is="dom-bind">
         <vaadin-upload id="imageUploader" class="uploadbox" id="fileEventsDemo" files="{{files}}">
           <div slot="file-list">
-            <h4>Files</h4>
+            <h4>IC / Passport</h4>
             <ul>
               <template is="dom-repeat" items="{{files}}" as="file">
                 <li>
@@ -43,9 +56,38 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </vaadin-upload>
       </template>
     </dom-bind>
+    <h3>Please upload your current portrait photo</h3>
+    <dom-bind>
+      <template is="dom-bind">
+        <vaadin-upload class="uploadbox" id="fileEventsDemo" files="{{files}}">
+          <div slot="file-list">
+            <h4>Portrait Photo</h4>
+            <ul>
+              <template is="dom-repeat" items="{{files}}" as="file">
+                <li>
+                  <strong>[[file.name]]</strong>
+                  [[file.status]]
+                </li>
+              </template>
+            </ul>
+          </div>
+        </vaadin-upload>
+      </template>
+    </dom-bind>
+    <paper-button raised onclick="complete()" class="nextButton">Next</paper-button>
+  </form>
+</iron-form>
   </template>
 
+
+
   <script>
+
+  function complete() {
+    alert('Registration Complete!');
+    document.location = '/news'
+  }
+
     class Register2 extends Polymer.Element {
       static get is() { 
         return 'my-register2'; 
