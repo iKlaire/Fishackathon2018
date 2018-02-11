@@ -28,7 +28,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <dom-bind>
       <template is="dom-bind">
-        <vaadin-upload class="uploadbox" id="fileEventsDemo" files="{{files}}">
+        <vaadin-upload id="imageUploader" class="uploadbox" id="fileEventsDemo" files="{{files}}">
           <div slot="file-list">
             <h4>Files</h4>
             <ul>
@@ -47,7 +47,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <script>
     class Register2 extends Polymer.Element {
-      static get is() { return 'my-register2'; }
+      static get is() { 
+        return 'my-register2'; 
+      }
 
       static get properties() {
         return {
