@@ -22,7 +22,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         padding: 10px;
       }
       #google-map-div {
-        height: 250px; 
+        height: 250px;
         width: 100%
       }
       input {
@@ -31,7 +31,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </style>
 
     <div class="card">
-      <h1>Season</h1>
+      <h1>Plan-A-Catch Results</h1>
       <div id="google-map-div">
         <google-map latitude="2.82837" longitude="101.10507" api-key="AIzaSyCl-I4v_4LQdvXcQJyJ2IHoTjnEGFTRePw" zoom="8" disable-default-ui fit-to-markers>
           <google-map-marker latitude="2.82837" longitude="101.10507" title="Here"></google-map-marker>
@@ -65,7 +65,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </div>
   </template>
 
-  
+
   <script>
     function submitForm() {
       alert('hehe u clicked me');
@@ -76,7 +76,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     static get properties() {
       const today = new Date();
-      const monthValue = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate(); 
+      const monthValue = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
       return {
         today: {
           type: String,
@@ -86,7 +86,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
 
       static get is() {
-        return 'my-season-result'; 
+        return 'my-season-result';
       }
     }
     window.customElements.define(MySeasonResult.is, MySeasonResult);

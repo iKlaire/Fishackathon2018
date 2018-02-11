@@ -22,7 +22,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         padding: 10px;
       }
       #google-map-div {
-        height: 250px; 
+        height: 250px;
         width: 100%
       }
       input {
@@ -31,7 +31,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </style>
 
     <div class="card">
-      <h1>Season</h1>
+      <h1>Plan-A-Catch</h1>
       <div id="google-map-div">
         <google-map latitude="3.1390" longitude="101.6869" api-key="AIzaSyCl-I4v_4LQdvXcQJyJ2IHoTjnEGFTRePw" zoom="13" disable-default-ui fit-to-markers>
           <google-map-marker latitude="3.1390" longitude="101.6869" title="Here" draggable="true"></google-map-marker>
@@ -50,6 +50,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <option value="drifters">Drifters</option>
             <option value="factoryShip">Factory Ship</option>
           </select>
+          <div>Fish to Catch</div>
+          <select  style="width:100%" name="fishingMethod">
+              <option value="salmon">Salmon</option>
+              <option value="bluefintuna">BlueFin Tuna</option>
+              <option value="seabass">Sea Bass</option>
+            </select>
           <div>Fishing Methods</div>
           <select  style="width:100%" name="fishingMethod">
               <option value="pelagic">Pelagic Trawling</option>
@@ -62,10 +68,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               <option value="longlining">Long-lining</option>
               <option value="gdtnet">Gill Nets, Drift Nets and Tangle Nets</option>
               <option value="lobsterandcp">Lobster and Crab Pots</option>
-            </select>          
+            </select>
           <div>Date</div>
           <input type="text" name="name" value="{{ today }}">
-          
+
           <div style="margin-bottom:25px"/>
           <paper-button style="width:100%" raised onclick="submitForm()">Submit</paper-button>
         </form>
@@ -73,7 +79,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </div>
   </template>
 
-  
+
   <script>
     function submitForm() {
       document.location = '/season-result'
@@ -83,7 +89,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     static get properties() {
       const today = new Date();
-      const monthValue = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate(); 
+      const monthValue = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
       return {
         today: {
           type: String,
@@ -93,7 +99,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
 
       static get is() {
-        return 'my-season'; 
+        return 'my-season';
       }
     }
     window.customElements.define(MySeason.is, MySeason);
