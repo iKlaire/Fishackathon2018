@@ -42,7 +42,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <div>Locations</div>
           <input type="text" name="name" value="3.1390, 101.6869">
           <div>Type of Vessels</div>
-          <select name="vessels">
+          <select style="width:100%" name="vessels">
             <option value="longliners">Longliners</option>
             <option value="gillnetters">Gillnetters</option>
             <option value="crabbers">Crabbers</option>
@@ -51,7 +51,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <option value="factoryShip">Factory Ship</option>
           </select>
           <div>Fishing Methods</div>
-          <select name="fishingMethod">
+          <select  style="width:100%" name="fishingMethod">
               <option value="pelagic">Pelagic Trawling</option>
               <option value="otter">Otter Trwalling</option>
               <option value="beam">Beam Trawling</option>
@@ -65,9 +65,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             </select>          
           <div>Date</div>
           <input type="text" name="name" value="{{ today }}">
-          <div>Would you marry Jeremy?
-          <paper-checkbox name="loveJeremy" value="yes" checked></paper-checkbox></div>
-          <paper-button raised onclick="submitForm()">Submit</paper-button>
+          
+          <div style="margin-bottom:25px"/>
+          <paper-button style="width:100%" raised onclick="submitForm()">Submit</paper-button>
         </form>
       </iron-form>
     </div>
@@ -77,6 +77,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <script>
     function submitForm() {
       alert('hehe u clicked me');
+      document.location = '/season-result'
     }
 
     class MySeason extends Polymer.Element {
