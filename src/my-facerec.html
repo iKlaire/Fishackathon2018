@@ -33,7 +33,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
           
       <div style="margin-bottom:25px"/>
-            <paper-button style="width:100%" raised onclick="submitForm">Scan</paper-button>
+            <paper-button style="width:100%" raised on-tap="submitForm">Scan</paper-button>
       </div>
     </div>
   </template>
@@ -47,7 +47,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       submitForm() {
-        document.location = 'facerec-result'
+        document.querySelector('my-app').page = 'facerec-result';
       }
     }
     window.customElements.define(MyFacerec.is, MyFacerec);
